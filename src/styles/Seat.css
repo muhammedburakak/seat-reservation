@@ -1,0 +1,53 @@
+.seat {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.seat.available {
+  background-color: #fff;
+}
+
+.seat.selected {
+  background-color: #ffd700;
+}
+
+.seat.reserved {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.seat:hover:not(.reserved) {
+  border-color: #888;
+  transform: scale(1.1);
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.seat.reserved:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
